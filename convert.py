@@ -1,5 +1,3 @@
-from asyncio import run
-from pydoc import doc
 from docx import Document
 from docx.table import Table
 from docx.shared import RGBColor
@@ -7,9 +5,11 @@ import xml.etree.ElementTree as ET
 import re   
 import zipfile
 import xml.etree.ElementTree as ET
+
 # -------------------------------
 # Extract titles by color
 # -------------------------------
+
 def extract_titles_by_color_from_docx(docx_file):
     doc = Document(docx_file)
     titles = {"red_titles": [], "grey_titles": []}
@@ -56,7 +56,7 @@ def extract_journal_meta(docx_file):
         "journal_title": journal_meta_string.split("-")[0].strip(),
         "journal_year": journal_meta_string.split("-")[1].split(";")[0].strip(),
         "jounral_id": journal_meta_string.split("/")[1].split("-")[0].split(".")[0].strip(),
-        "journal_volume": journal_meta_string.split("Vol")[1].split(" ")[0].strip(),
+        "journal_volume": journal_meta_string.split("Vol")[1].split(" (")[0].strip(),
         "journal_issue": journal_meta_string.split("(")[1].split(")")[0].strip(),
         "journal_start_page": journal_meta_string.split(":")[1].split("-")[0].strip(),
         "journal_end_page": journal_meta_string.split(":")[1].split("-")[1].strip().split("\t")[0],
@@ -178,8 +178,6 @@ def extract_body(docx_file,):
     doc = Document(docx_file)
     sections = []
     current_sec = None
-
-    
     for paragraph in doc.paragraphs:
         if paragraph.style.name == "Heading 1":
             if paragraph.text.strip().upper() == "REFERENCE" or paragraph.text.strip().upper() == "RÉFÉRENCE":
@@ -201,9 +199,6 @@ def extract_body(docx_file,):
 
                     parts = []
                     last = 0
-                    
-
-
                     for m in re.finditer(r'\((\d+)\)', text):
                         parts.append(text[last:m.start()])   # normal text
                         parts.append(("xref", m.group(1)))   # mark xref
@@ -404,10 +399,9 @@ def main():
     create_xml_with_title(titles, journal, contributors, affiliations, permissions_info, abstract_data, paragraphs_body, output_xml)
     print(f"XML file created successfully: {output_xml}")
     
-    #print(extract_table_text(input_docx))
-    #print(extract_body(input_docx))    
-    #print(extract_keys(input_docx))
-    #print(add_all_tables_as_figs(input_docx))
-    
+
+
+
+    print("this is test branch:")
 if __name__ == "__main__":
     main()
