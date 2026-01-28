@@ -404,10 +404,10 @@ def main():
     create_xml_with_title(titles, journal, contributors, affiliations, permissions_info, abstract_data, paragraphs_body, output_xml)
     print(f"XML file created successfully: {output_xml}")
     
-    #print(extract_table_text(input_docx))
-    #print(extract_body(input_docx))    
-    #print(extract_keys(input_docx))
-    #print(add_all_tables_as_figs(input_docx))
+    print(extract_table_text(input_docx))
+    print(extract_body(input_docx))    
+    print(extract_keys(input_docx))
+    print(add_all_tables_as_figs(input_docx))
     
 if __name__ == "__main__":
     main()
