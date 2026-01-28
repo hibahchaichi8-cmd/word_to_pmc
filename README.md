@@ -40,6 +40,4 @@ The website provides a simple, user-friendly interface that allows users to brow
 - Online payment integration
 - Admin dashboard to manage products
 
-## Author
-**Hiba**  
-Web Development Student
+
