@@ -7,9 +7,11 @@ import xml.etree.ElementTree as ET
 import re   
 import zipfile
 import xml.etree.ElementTree as ET
+
 # -------------------------------
 # Extract titles by color
 # -------------------------------
+
 def extract_titles_by_color_from_docx(docx_file):
     doc = Document(docx_file)
     titles = {"red_titles": [], "grey_titles": []}
