@@ -399,6 +399,14 @@ def main():
     create_xml_with_title(titles, journal, contributors, affiliations, permissions_info, abstract_data, paragraphs_body, output_xml)
     print(f"XML file created successfully: {output_xml}")
     
+
+
+
+
+
+
+    print("this is OK branch:")
+    
     print("this is test branch:")
     print("this is test2  branch:")
 if __name__ == "__main__":
