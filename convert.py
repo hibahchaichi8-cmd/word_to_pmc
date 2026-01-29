@@ -1,5 +1,3 @@
-from asyncio import run
-from pydoc import doc
 from docx import Document
 from docx.table import Table
 from docx.shared import RGBColor
@@ -178,8 +176,6 @@ def extract_body(docx_file,):
     doc = Document(docx_file)
     sections = []
     current_sec = None
-
-    
     for paragraph in doc.paragraphs:
         if paragraph.style.name == "Heading 1":
             if paragraph.text.strip().upper() == "REFERENCE" or paragraph.text.strip().upper() == "RÉFÉRENCE":
@@ -201,9 +197,6 @@ def extract_body(docx_file,):
 
                     parts = []
                     last = 0
-                    
-
-
                     for m in re.finditer(r'\((\d+)\)', text):
                         parts.append(text[last:m.start()])   # normal text
                         parts.append(("xref", m.group(1)))   # mark xref
@@ -404,10 +397,7 @@ def main():
     create_xml_with_title(titles, journal, contributors, affiliations, permissions_info, abstract_data, paragraphs_body, output_xml)
     print(f"XML file created successfully: {output_xml}")
     
-    print(extract_table_text(input_docx))
-    print(extract_body(input_docx))    
-    print(extract_keys(input_docx))
-    print(add_all_tables_as_figs(input_docx))
-    
+
+    print("this is feature branch:")
 if __name__ == "__main__":
     main()
