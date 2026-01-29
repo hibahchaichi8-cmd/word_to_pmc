@@ -400,6 +400,6 @@ def main():
     print(f"XML file created successfully: {output_xml}")
     
 
-    print("this is feature branch:")
+    print("this is main branch:")
 if __name__ == "__main__":
     main()
